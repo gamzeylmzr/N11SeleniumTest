@@ -1,7 +1,6 @@
 package com.gamzeyilmazer.pages;
 
 import com.gamzeyilmazer.base.TestBase;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -32,9 +31,6 @@ public class SearchResultsPage extends TestBase {
         return new SearchResultsPage();
     }
 
-    public boolean isAnyResultFound() {
-        return (driver.findElements(By.className("notFoundContainer")).size() != 0);
-    }
 
     public SearchResultsPage navigateToSecondPage(){
         Actions actions = new Actions(driver);

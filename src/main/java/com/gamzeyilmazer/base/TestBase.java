@@ -4,6 +4,8 @@ import com.gamzeyilmazer.util.TestUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterSuite;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -41,10 +43,21 @@ public class TestBase {
             driver = new ChromeDriver(options);
         }
 
+        else if(browserName.equals("firefox"))
+        {
+            System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/main/java/com/gamzeyilmazer/drivers/geckodriver.exe");
+            driver = new FirefoxDriver();
+        }
+
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT,TimeUnit.SECONDS);
         driver.get(prop.getProperty("url"));
+    }
+
+    @AfterSuite
+    public void tearDown(){
+        driver.quit();
     }
 
 }

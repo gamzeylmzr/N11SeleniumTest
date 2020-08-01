@@ -3,7 +3,9 @@
 <suite name="N11 Case Suite">
     <test name="N11 Test">
         <classes>
-            <class name="com.gamzeyilmazer.N11Test"/>
+            <class name="com.gamzeyilmazer.LoginPageTest"/>
+            <class name="com.gamzeyilmazer.HomePageTest"/>
+            <class name="com.gamzeyilmazer.CartPageTest"/>
         </classes>
     </test>
 </suite>
